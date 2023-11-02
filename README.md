@@ -1,5 +1,5 @@
 # hey-pair-programming
-Pair programming assistant powered by EvaDB.
+Pair programming assistant powered by EvaDB. Please add hey.py to your project directory and call it to ask a question or make a request!
 
 # Requirements
 Must have Python >=3.8 downloaded.
