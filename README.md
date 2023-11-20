@@ -2,11 +2,14 @@
 AI pair programming assistant powered by EvaDB. <b>This application is intended for Windows devices</b>, and uses EvaDB. If you want to see the application this is inspired by, or do not have a Windows device but wish to have a pair programming assistant, please visit this website: https://github.com/lnxpy/hey
 
 # Requirements
-Must have Python >=3.8 downloaded.
+Must have Python >=3.9 downloaded.
 
-Since this application uses ChatGPT, please assign the environment variable OPENAI_KEY to your OpenAI key string. (OpenAI account is required)
+Since this application uses ChatGPT, please assign the environment variable OPENAI_KEY to your OpenAI key string (<b>OpenAI account is required</b>).
 
 # Setup
+
+Since this app uses EvaDB, please make sure to install it. The guide can be found here: https://evadb.readthedocs.io/en/stable/source/overview/getting-started.html
+
 Please install the required libraries with these commands in the command terminal if you haven't done so already:
 
 pip install evadb
