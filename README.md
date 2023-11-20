@@ -25,6 +25,8 @@ where (path to hey.py) is the absolute path to hey.py on your computer, includin
 
 To use Hey, simply write "hey" in the command line, followed by your request. Hey is designed to be a pair programming assistant, so you can ask it about your project files as well! Simply ask your question about the file, making sure to include the file path in your question relative to hey.py. For example, if hey.py and file.py are in the same directory, one could type "hey annotate file.py" if they wanted Hey to annotate their file.
 
+This application uses EvaDB in order to query ChatGPT, and it stores previously made requests so that repeated requests can be more efficiently retrieved. If you wish to clear Hey's memory, you can type "hey clear".
+
 If you relocate hey.py to another project directory, make sure to update the file path by running the following line in the command terminal:
 
 doskey hey=python (new path to hey.py) $*
