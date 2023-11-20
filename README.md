@@ -27,6 +27,9 @@ To use Hey, simply write "hey" in the command line, followed by your request. He
 
 This application uses EvaDB in order to query ChatGPT, and it stores previously made requests so that repeated requests can be more efficiently retrieved. If you wish to clear Hey's memory, you can type "hey clear".
 
-If you relocate hey.py to another directory, make sure to update the file path by running the following line in the command terminal:
+If you close and reopen your command terminal, please run this line of code again:
+doskey hey=python (path to hey.py) $*
 
-doskey hey=python (new path to hey.py) $*
+Alternatively, you can call hey.py directly for your questions or requests like so:
+
+py (path to hey.py) (question/request)
