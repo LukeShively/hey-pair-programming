@@ -21,9 +21,7 @@ cursor = evadb.connect().cursor()
 #import wget
 #!wget -nc https://raw.githubusercontent.com/georgia-tech-db/eva/master/evadb/udfs/chatgpt.py -O chatgpt.py
 
-
 open_ai_key = os.environ.get('OPENAI_KEY')
-
 
 pandas.set_option('display.max_colwidth', None)
 
@@ -40,11 +38,12 @@ sys.argv[0] = ""
 for s in sys.argv:
     s = str(s)
     hey_request += s + " "
-    if "." in s and s[len(s) - 1] != "." and s.isalpha():
+    if "." in s and s[len(s) - 1] != ".":
         s = s.strip(",.?!\'\"()-")
         file_list.append(s)
 
 for file in file_list:
+
     try:
         f = open(file, "r")
     except:
@@ -53,9 +52,6 @@ for file in file_list:
     file_text = evadb_format(file_text)
     
     hey_request += " The file " + file + " is: " + file_text
-    print(f.read())
-
-#########################################################################
 
 if hey_request.lower().strip() == "clear":
     
