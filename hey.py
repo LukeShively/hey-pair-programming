@@ -1,7 +1,6 @@
 import evadb
 import string
 import os
-import pandas
 import io
 import sys
 import contextlib
@@ -17,17 +16,11 @@ def evadb_format(unformatted):
 
 cursor = evadb.connect().cursor()
 
-# Download ChatGPT UDF if needed
-#import wget
-#!wget -nc https://raw.githubusercontent.com/georgia-tech-db/eva/master/evadb/udfs/chatgpt.py -O chatgpt.py
-
 open_ai_key = os.environ.get('OPENAI_KEY')
-
-pandas.set_option('display.max_colwidth', None)
 
 # Create Hey table
 hey_query = """
-    CREATE TABLE IF NOT EXISTS Hey (request TEXT(3000), answer TEXT(3000));
+    CREATE TABLE IF NOT EXISTS Hey (request TEXT(5000), answer TEXT(5000));
 """
 cursor.query(hey_query).df()
 
@@ -40,6 +33,7 @@ for s in sys.argv:
     hey_request += s + " "
     if "." in s and s[len(s) - 1] != ".":
         s = s.strip(",.?!\'\"()-")
+        s = s.replace("'s", "")
         file_list.append(s)
 
 for file in file_list:
@@ -59,6 +53,7 @@ if hey_request.lower().strip() == "clear":
             DROP TABLE IF EXISTS Hey;
     """
     cursor.query(clear_query).df()
+    print("History successfully cleared")
     exit()
 
 hey_test = f"""
